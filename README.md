@@ -1,8 +1,6 @@
 # Alpine SSHD
 
-[![Image Layers](https://badge.imagelayers.io/ekapusta/alpine-sshd:latest.svg)](https://imagelayers.io/?images=ekapusta/alpine-sshd:latest)
-[![Docker Stars](https://img.shields.io/docker/stars/ekapusta/alpine-sshd.svg?style=flat-square)](https://hub.docker.com/r/ekapusta/alpine-sshd/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ekapusta/alpine-sshd.svg?style=flat-square)](https://hub.docker.com/r/ekapusta/alpine-sshd/)
+[![Image Layers](https://badge.imagelayers.io/ekapusta/alpine-sshd:latest.svg)](https://imagelayers.io/?images=ekapusta/alpine-sshd:latest) [![Docker Stars](https://img.shields.io/docker/stars/ekapusta/alpine-sshd.svg?style=flat-square)](https://hub.docker.com/r/ekapusta/alpine-sshd/) [![Docker Pulls](https://img.shields.io/docker/pulls/ekapusta/alpine-sshd.svg?style=flat-square)](https://hub.docker.com/r/ekapusta/alpine-sshd/)
 
 ## Build
 
@@ -17,7 +15,8 @@
 
 ## Run restartable on 2222 port with mounted $HOME to root
 
-    docker run --detach --restart=always --volume=$HOME:/root --publish=2222:22 --name=sshd ekapusta/alpine-sshd
+    docker run --detach --restart=always --volume=$HOME:/root \
+               --publish=2222:22 --name=sshd ekapusta/alpine-sshd
 
 ## Clean, run & go into
 
