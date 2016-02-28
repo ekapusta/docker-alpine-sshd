@@ -9,7 +9,6 @@ RUN \
 
 # Default config overrides
 ENV SSHD_OPTION_PERMIT_ROOT_LOGIN yes
-ENV SSHD_OPTION_USE_PAM no
 ENV SSHD_OPTION_USE_DNS no
 
 ENV SSHD_COMMAND_AFTER ""
@@ -25,7 +24,6 @@ CMD [ \
     -D \
     -e \
     -o PermitRootLogin=$SSHD_OPTION_PERMIT_ROOT_LOGIN \
-    -o UsePAM=$SSHD_OPTION_USE_PAM \
     -o UseDNS=$SSHD_OPTION_USE_DNS \
     $SSHD_COMMAND_AFTER" \
 ]
