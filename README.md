@@ -12,15 +12,19 @@
  * SSHD_OPTION_USE_DNS
  * SSHD_COMMAND_AFTER
 
-## Run restartable on 2222 port with mounted $HOME to root
+## Run restartable on 2222 port with mounted $HOME to root and keys
 
-    docker run --detach --restart=always --volume=$HOME:/root \
-               --publish=2222:22 --name=sshd ekapusta/alpine-sshd
+    docker run --name=sshd --detach --restart=always --publish=2222:22 \
+               --volume=$(pwd)/vol/etc/ssh:/etc/ssh \
+               --volume=$HOME:/root \
+               ekapusta/alpine-sshd
 
 ## Clean, run & go into
 
-    docker ps --filter=name=sshd && docker stop sshd && docker rm sshd
-    docker run --detach --name=sshd ekapusta/alpine-sshd
+    docker ps --filter=name=sshd && docker rm --force sshd
+    docker run --name=sshd --detach \
+               --volume=$(pwd)/vol/etc/ssh:/etc/ssh \
+               ekapusta/alpine-sshd
     docker exec --interactive=true --tty=true sshd sh
 
 ## Debug
